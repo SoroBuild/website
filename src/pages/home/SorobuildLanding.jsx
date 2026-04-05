@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import DonationModal from "./DonationModal";
 
 const socialLinks = {
   github: {
@@ -363,8 +364,10 @@ export default function SoroBuildLanding() {
                 friction.
               </p>
 
+              <DonationModal />
+
               {enabledSocials.length > 0 && (
-                <div className="mt-5 flex flex-wrap items-center gap-3">
+                <div className="mt-3 flex flex-wrap items-center gap-3">
                   {enabledSocials.map((item) => (
                     <SocialIconLink
                       key={item.label}
