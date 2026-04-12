@@ -4,6 +4,8 @@ import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
 import SoroBuildLanding from "./pages/home/SorobuildLanding";
 import NotFound from "./pages/home/not-found/NotFound";
+import PlatformStatsPage from "./pages/stats/PlatformStatsPage";
+import Layout from "./common/Layout";
 
 function App() {
   return (
@@ -11,8 +13,11 @@ function App() {
       <Toaster position="top-center" richColors />
       <Router>
         <Routes>
-          <Route path="/" element={<SoroBuildLanding />} index />
-          <Route path="*" element={<NotFound />} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<SoroBuildLanding />} />
+            <Route path="/stats" element={<PlatformStatsPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
       </Router>
     </div>
