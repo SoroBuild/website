@@ -2,259 +2,459 @@ import React from "react";
 
 export default function SoroBuildLanding() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[420px] bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_45%),radial-gradient(circle_at_top_right,rgba(168,85,247,0.08),transparent_35%)]" />
+    <div className="min-h-screen overflow-hidden bg-white text-slate-950">
+      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[620px] bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.14),transparent_34%),radial-gradient(circle_at_top_right,rgba(124,58,237,0.13),transparent_34%),linear-gradient(to_bottom,rgba(248,250,252,1),rgba(255,255,255,0))]" />
 
-      {/* HERO */}
-      <section
-        id="top"
-        className="relative mx-auto max-w-7xl px-6 pb-20 pt-24 md:pb-24 md:pt-28"
-      >
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center rounded-full border border-slate-200 bg-white/80 px-4 py-1.5 text-xs font-medium text-slate-600 shadow-sm">
-            Soroban developer platform
-          </div>
-
-          <h1 className="text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl md:leading-[1.05]">
-            Build, test, and deploy
-            <span className="block text-slate-500">
-              Soroban applications faster
-            </span>
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
-            SoroBuild gives teams a complete workflow for Soroban development —
-            from no-code contract deployment and interaction to a full online
-            IDE for writing, simulating, debugging, and shipping smart
-            contracts.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="https://ide.soro.build"
-              target="_blank"
-              className="inline-flex min-w-[160px] items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-sm font-medium text-white shadow-[0_10px_30px_rgba(15,23,42,0.15)] transition hover:bg-slate-800"
-            >
-              Launch IDE
-            </a>
-
-            <a
-              href="https://studio.soro.build"
-              target="_blank"
-              className="inline-flex min-w-[160px] items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-            >
-              Open Dev Studio
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCT SPLIT */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="grid gap-8 md:grid-cols-2">
-          <ProductCard
-            id="studio"
-            eyebrow="No-code studio"
-            eyebrowClass="text-blue-700"
-            title="Deploy and interact with contracts through a clean visual interface"
-            description="A no-code workflow for developers, teams, and ecosystem builders who want to deploy, manage, test, and interact with Soroban smart contracts without repetitive setup."
-            features={[
-              "One-click contract deployment",
-              "Visual contract interaction flows",
-              "Token and asset management",
-              "Pre-execution simulation support",
-            ]}
-            cta="Open Studio"
-            accent="blue"
-            refs="https://studio.soro.build"
-          />
-
-          <ProductCard
-            id="ide"
-            eyebrow="Online IDE"
-            eyebrowClass="text-violet-700"
-            title="A full in-browser environment for coding, testing, and debugging"
-            description="Write and manage Soroban smart contracts in a structured browser-based IDE with testing, simulation, network integration, and developer tooling in one place."
-            features={[
-              "Multi-file Rust project support",
-              "Integrated Soroban simulation",
-              "Execution logs and debugging",
-              "Wallet and network integration",
-            ]}
-            cta="Open IDE"
-            accent="violet"
-            refs="https://ide.soro.build"
-            muted
-          />
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section
-        id="features"
-        className="border-y border-slate-200 bg-slate-50/70 py-24"
-      >
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="mx-auto mb-12 max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-              Built for modern Soroban development
-            </h2>
-            <p className="mt-4 text-slate-600">
-              Everything needed to go from idea to deployed contract with less
-              friction and better tooling.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {features.map((feature) => (
-              <FeatureCard key={feature.title} {...feature} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WORKFLOW */}
-      <section id="workflow" className="mx-auto max-w-7xl px-6 py-24">
-        <div className="mx-auto mb-12 max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-            A simple workflow from build to deployment
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Clear, fast, and designed for builders who want less setup and more
-            output.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <div className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-950 text-xs font-semibold text-white">
-                {index + 1}
-              </div>
-              <h3 className="text-base font-semibold text-slate-950">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                {step.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-950 px-6 py-14 text-center shadow-[0_24px_80px_rgba(15,23,42,0.16)] md:px-10">
-          <div className="mx-auto max-w-2xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-white">
-              Start building on Soroban with less friction
-            </h2>
-            <p className="mt-4 text-slate-300">
-              Use Studio for no-code workflows, switch to the IDE for full
-              development, and keep your team shipping from one platform.
-            </p>
-
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="https://studio.soro.build"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-w-[160px] items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-medium text-slate-950 transition hover:bg-slate-100"
-              >
-                Get Started
-              </a>
-              <a
-                href="https://docs.soro.build"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-w-[160px] items-center justify-center rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-              >
-                View Documentation
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
+      <LogoStrip />
+      <ProductSuite />
+      <FlowSection />
+      <FeatureSection />
+      <WorkflowSection />
+      <StatsSection />
+      <FinalCta />
     </div>
   );
 }
 
-function NavLink({ href, children }) {
+function HeroSection() {
   return (
-    <a
-      href={href}
-      className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
-    >
-      {children}
-    </a>
-  );
-}
-
-function ProductCard({
-  id,
-  eyebrow,
-  eyebrowClass,
-  title,
-  description,
-  features,
-  cta,
-  muted = false,
-  accent = "blue",
-  refs,
-}) {
-  const accentClasses =
-    accent === "violet"
-      ? "from-violet-500/10 to-transparent"
-      : "from-blue-500/10 to-transparent";
-
-  return (
-    <section
-      id={id}
-      className={`relative overflow-hidden rounded-3xl border border-slate-200 p-8 shadow-sm transition hover:-translate-y-0.5 hover:shadow-xl md:p-10 ${
-        muted ? "bg-slate-50" : "bg-white"
-      }`}
-    >
-      <div
-        className={`pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b ${accentClasses}`}
-      />
-      <div className="relative">
-        <div className={`mb-4 text-xs font-semibold uppercase ${eyebrowClass}`}>
-          {eyebrow}
+    <section className="relative mx-auto max-w-7xl px-6 pb-20 pt-24 md:pb-28 md:pt-32">
+      <div className="mx-auto max-w-5xl text-center">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-4 py-1.5 text-xs font-semibold text-slate-600 shadow-sm backdrop-blur">
+          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          Soroban developer tooling for faster shipping
         </div>
 
-        <h2 className="max-w-xl text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">
-          {title}
-        </h2>
+        <h1 className="text-balance text-5xl font-semibold tracking-tight text-slate-950 md:text-7xl md:leading-[0.98]">
+          Build, test, and automate
+          <span className="block bg-gradient-to-r from-slate-950 via-slate-700 to-slate-500 bg-clip-text text-transparent">
+            Soroban workflows
+          </span>
+        </h1>
 
-        <p className="mt-4 max-w-xl text-sm leading-6 text-slate-600 md:text-base">
-          {description}
+        <p className="mx-auto mt-7 max-w-3xl text-pretty text-base leading-8 text-slate-600 md:text-xl">
+          SoroBuild is a premium developer platform for Soroban builders. Use
+          Studio for no-code contract workflows, Flow to generate executable
+          deployment scripts, and the IDE for full smart contract development.
         </p>
 
-        <div className="mt-7 space-y-3">
-          {features.map((feature) => (
-            <Feature key={feature} text={feature} />
-          ))}
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <PrimaryLink href="https://flow.soro.build">
+            Open SoroBuild Flow
+          </PrimaryLink>
+          <SecondaryLink href="https://ide.soro.build">
+            Launch IDE
+          </SecondaryLink>
         </div>
 
-        <a
-          href={refs}
-          target="_blank"
-          className="mt-8 inline-flex items-center rounded-lg px-0 text-sm font-semibold text-slate-950 transition hover:opacity-70"
-        >
-          {cta} <span className="ml-2">→</span>
-        </a>
+        <div className="mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
+          <HeroMetric label="Tools" value="3" hint="Studio, Flow, IDE" />
+          <HeroMetric
+            label="Networks"
+            value="4"
+            hint="Public, Testnet, Local"
+          />
+          <HeroMetric label="Focus" value="Soroban" hint="Built for Stellar" />
+        </div>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-6xl">
+        <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 p-2 shadow-[0_40px_120px_rgba(15,23,42,0.22)]">
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/10 to-transparent" />
+          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 md:p-7">
+            <div className="flex items-center justify-between border-b border-white/10 pb-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  SoroBuild Platform
+                </p>
+                <h2 className="mt-2 text-lg font-semibold text-white">
+                  Developer workflow command center
+                </h2>
+              </div>
+              <div className="hidden rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300 sm:block">
+                Live tooling
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_0.8fr]">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <p className="text-sm font-semibold text-white">
+                    Generated Flow
+                  </p>
+                  <p className="text-xs text-slate-400">flow.selected.sh</p>
+                </div>
+
+                <div className="space-y-3 font-mono text-xs text-slate-300">
+                  <CodeLine text="1  ./scripts/deploy.sh" />
+                  <CodeLine text="2  ./scripts/invoke/initialize.sh" />
+                  <CodeLine text="3  ./scripts/invoke/add_validator.sh" />
+                  <CodeLine text="4  ./scripts/invoke/propose_upgrade.sh" />
+                </div>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                <DashboardTile label="WASM upload" value="Inspect" />
+                <DashboardTile label="Scripts" value="Generate" />
+                <DashboardTile label="Arguments" value="Configure" />
+                <DashboardTile label="Workflow" value="Download" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-function Feature({ text }) {
+function LogoStrip() {
   return (
-    <div className="flex items-start gap-3 text-sm text-slate-700">
-      <div className="mt-2 h-1.5 w-1.5 rounded-full bg-slate-950" />
+    <section className="border-y border-slate-200 bg-slate-50/70">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-center text-sm text-slate-500 md:flex-row md:items-center md:justify-between md:text-left">
+        <span>Built for serious Soroban builders and ecosystem teams.</span>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Pill>Contract deployment</Pill>
+          <Pill>Workflow automation</Pill>
+          <Pill>Simulation</Pill>
+          <Pill>IDE tooling</Pill>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductSuite() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-24">
+      <SectionHeader
+        eyebrow="Product suite"
+        title="One platform. Three focused tools."
+        description="Each SoroBuild product solves a different part of the Soroban developer workflow while staying connected under one ecosystem."
+      />
+
+      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <ProductCard
+          title="SoroBuild Studio"
+          eyebrow="No-code developer studio"
+          description="Deploy, manage, and interact with contracts through a clean visual interface without repetitive setup."
+          href="https://studio.soro.build"
+          cta="Open Studio"
+          features={[
+            "One-click deployment",
+            "Visual contract interaction",
+            "Token and asset workflows",
+            "Pre-execution simulation",
+          ]}
+        />
+        <ProductCard
+          title="SoroBuild Flow"
+          eyebrow="Workflow automation"
+          description="Upload a compiled WASM and generate portable deploy, invoke, env, and argument scripts you can run locally."
+          href="https://flow.soro.build"
+          cta="Open Flow"
+          featured
+          features={[
+            "WASM inspection",
+            "Executable shell workflows",
+            "Editable env and arguments",
+            "Downloadable workflow ZIPs",
+          ]}
+        />
+        <ProductCard
+          title="SoroBuild IDE"
+          eyebrow="Full browser IDE"
+          description="Write, test, simulate, debug, and manage Soroban projects from a structured online development environment."
+          href="https://ide.soro.build"
+          cta="Launch IDE"
+          features={[
+            "Multi-file Rust projects",
+            "Integrated simulation",
+            "Execution logs",
+            "Wallet and network support",
+          ]}
+        />
+      </div>
+    </section>
+  );
+}
+
+function FlowSection() {
+  return (
+    <section className="relative border-y border-slate-200 bg-slate-950 py-24 text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.22),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(124,58,237,0.2),transparent_32%)]" />
+
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <div className="mb-5 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold text-slate-300">
+            New: SoroBuild Flow
+          </div>
+
+          <h2 className="text-3xl font-semibold tracking-tight md:text-5xl md:leading-tight">
+            Generate complete Soroban workflows from a WASM file.
+          </h2>
+
+          <p className="mt-5 text-base leading-8 text-slate-300">
+            Flow saves time after contract development by generating deployment,
+            invocation, environment, and argument scripts automatically. Edit
+            the workflow, download it, and run it locally with your own keys.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="https://flow.soro.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+            >
+              Try Flow
+            </a>
+            <a
+              href="https://github.com/SoroBuild/sorobuild-flow"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              View GitHub
+            </a>
+          </div>
+        </div>
+
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 shadow-2xl backdrop-blur">
+          <div className="rounded-[1.4rem] border border-white/10 bg-slate-900/80 p-5">
+            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+              <div>
+                <p className="text-xs text-slate-400">Generated package</p>
+                <p className="mt-1 font-mono text-sm text-white">
+                  sorobuild-flow.zip
+                </p>
+              </div>
+              <div className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
+                Local-first
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-3">
+              {[
+                "env.sh",
+                "arguments.sh",
+                "flow.selected.sh",
+                "scripts/deploy.sh",
+                "scripts/invoke/*.sh",
+                "contract.optimized.wasm",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3"
+                >
+                  <span className="font-mono text-sm text-slate-200">
+                    {item}
+                  </span>
+                  <span className="text-xs text-slate-500">generated</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FeatureSection() {
+  return (
+    <section id="features" className="mx-auto max-w-7xl px-6 py-24">
+      <SectionHeader
+        eyebrow="Capabilities"
+        title="Built for modern Soroban development"
+        description="From visual contract workflows to code-first project development, SoroBuild helps developers reduce setup and focus on shipping."
+      />
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {features.map((feature) => (
+          <FeatureCard key={feature.title} {...feature} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function WorkflowSection() {
+  return (
+    <section
+      id="workflow"
+      className="border-y border-slate-200 bg-slate-50/70 py-24"
+    >
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeader
+          eyebrow="Workflow"
+          title="A clear path from contract to execution"
+          description="SoroBuild gives developers the tooling they need across the full lifecycle."
+        />
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {steps.map((step, index) => (
+            <StepCard key={step.title} index={index + 1} {...step} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StatsSection() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-24">
+      <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+        <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="border-b border-slate-200 p-8 md:p-10 lg:border-b-0 lg:border-r">
+            <div className="mb-4 inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Analytics
+            </div>
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+              Live platform statistics for ecosystem visibility.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              Track platform users, developer actions, network activity, and
+              SoroBuild Flow adoption from a single statistics page.
+            </p>
+
+            <a
+              href="/stats"
+              className="mt-7 inline-flex items-center rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              View statistics
+            </a>
+          </div>
+
+          <div className="grid gap-4 p-8 md:grid-cols-2 md:p-10">
+            <StatPreview label="Platform users" value="Live" />
+            <StatPreview label="Transactions" value="Tracked" />
+            <StatPreview label="Flow workflows" value="Generated" />
+            <StatPreview label="Scripts" value="Automated" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCta() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 pb-24">
+      <div className="relative overflow-hidden rounded-[2rem] bg-slate-950 px-6 py-16 text-center shadow-[0_24px_90px_rgba(15,23,42,0.22)] md:px-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.24),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(124,58,237,0.22),transparent_34%)]" />
+        <div className="relative mx-auto max-w-3xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            Start building Soroban apps with less friction.
+          </h2>
+          <p className="mt-5 text-base leading-8 text-slate-300">
+            Choose the product that matches your workflow: Studio for visual
+            contract operations, Flow for executable script generation, or IDE
+            for full development.
+          </p>
+
+          <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href="https://flow.soro.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-w-[170px] items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+            >
+              Open Flow
+            </a>
+            <a
+              href="https://docs.soro.build"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-w-[170px] items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              View docs
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProductCard({
+  title,
+  eyebrow,
+  description,
+  features,
+  href,
+  cta,
+  featured,
+}) {
+  return (
+    <article
+      className={`relative overflow-hidden rounded-[1.75rem] border p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl ${
+        featured
+          ? "border-slate-950 bg-slate-950 text-white"
+          : "border-slate-200 bg-white text-slate-950"
+      }`}
+    >
+      <div
+        className={`absolute inset-x-0 top-0 h-32 ${
+          featured
+            ? "bg-gradient-to-b from-white/10 to-transparent"
+            : "bg-gradient-to-b from-slate-100 to-transparent"
+        }`}
+      />
+
+      <div className="relative">
+        <p
+          className={`text-xs font-semibold uppercase tracking-[0.2em] ${
+            featured ? "text-slate-300" : "text-slate-500"
+          }`}
+        >
+          {eyebrow}
+        </p>
+
+        <h3 className="mt-5 text-2xl font-semibold tracking-tight">{title}</h3>
+
+        <p
+          className={`mt-4 text-sm leading-7 ${
+            featured ? "text-slate-300" : "text-slate-600"
+          }`}
+        >
+          {description}
+        </p>
+
+        <div className="mt-7 space-y-3">
+          {features.map((feature) => (
+            <Feature key={feature} text={feature} inverted={featured} />
+          ))}
+        </div>
+
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-8 inline-flex items-center text-sm font-semibold transition hover:opacity-75 ${
+            featured ? "text-white" : "text-slate-950"
+          }`}
+        >
+          {cta} <span className="ml-2">→</span>
+        </a>
+      </div>
+    </article>
+  );
+}
+
+function Feature({ text, inverted }) {
+  return (
+    <div
+      className={`flex items-start gap-3 text-sm ${
+        inverted ? "text-slate-300" : "text-slate-700"
+      }`}
+    >
+      <div
+        className={`mt-2 h-1.5 w-1.5 rounded-full ${
+          inverted ? "bg-white" : "bg-slate-950"
+        }`}
+      />
       <span>{text}</span>
     </div>
   );
@@ -263,7 +463,7 @@ function Feature({ text }) {
 function FeatureCard({ icon, title, desc }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-      <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950 text-lg text-white">
+      <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950 text-lg text-white">
         {icon}
       </div>
       <h3 className="text-base font-semibold text-slate-950">{title}</h3>
@@ -272,171 +472,158 @@ function FeatureCard({ icon, title, desc }) {
   );
 }
 
-function FooterLinkGroup({ title, links }) {
+function StepCard({ index, title, desc }) {
   return (
-    <div>
-      <h3 className="text-sm font-semibold text-slate-950">{title}</h3>
-      <ul className="mt-4 space-y-3">
-        {links.map((link) => (
-          <li key={link.label}>
-            <a
-              href={link.href}
-              className="text-sm text-slate-600 transition hover:text-slate-950"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+      <div className="mb-5 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-xs font-semibold text-white">
+        {index}
+      </div>
+      <h3 className="text-base font-semibold text-slate-950">{title}</h3>
+      <p className="mt-2 text-sm leading-6 text-slate-600">{desc}</p>
     </div>
   );
 }
 
-function SocialIconLink({ href, label, icon }) {
+function SectionHeader({ eyebrow, title, description }) {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <div className="mb-4 inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 shadow-sm">
+        {eyebrow}
+      </div>
+      <h2 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-5xl md:leading-tight">
+        {title}
+      </h2>
+      <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function PrimaryLink({ href, children }) {
   return (
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
-      aria-label={label}
-      title={label}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950"
+      rel="noopener noreferrer"
+      className="inline-flex min-w-[190px] items-center justify-center rounded-xl bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_16px_45px_rgba(15,23,42,0.18)] transition hover:bg-slate-800"
     >
-      {icon}
+      {children}
     </a>
   );
 }
 
-function getSocialIcon(label) {
-  const value = label.toLowerCase();
-
-  if (value.includes("twitter") || value.includes("x")) {
-    return <XIcon />;
-  }
-  if (value.includes("github")) {
-    return <GitHubIcon />;
-  }
-  if (value.includes("telegram")) {
-    return <TelegramIcon />;
-  }
-  if (value.includes("discord")) {
-    return <DiscordIcon />;
-  }
-  return <GlobeIcon />;
-}
-
-function IconBase({ children, viewBox = "0 0 24 24" }) {
+function SecondaryLink({ href, children }) {
   return (
-    <svg aria-hidden="true" viewBox={viewBox} className="h-4 w-4 fill-current">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex min-w-[190px] items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+    >
       {children}
-    </svg>
+    </a>
   );
 }
 
-function MenuIcon() {
+function HeroMetric({ label, value, hint }) {
   return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M4 6.75A.75.75 0 0 1 4.75 6h14.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 6.75Zm0 5.25a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H4.75A.75.75 0 0 1 4 12Zm.75 4.5a.75.75 0 0 0 0 1.5h9.5a.75.75 0 0 0 0-1.5h-9.5Z" />
-    </IconBase>
+    <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur">
+      <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-500">
+        {label}
+      </p>
+      <p className="mt-2 text-2xl font-semibold text-slate-950">{value}</p>
+      <p className="mt-1 text-xs text-slate-500">{hint}</p>
+    </div>
   );
 }
 
-function CloseIcon() {
+function Pill({ children }) {
   return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 0 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 1 0-1.06-1.06L12 10.94 6.53 5.47Z" />
-    </IconBase>
+    <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600 shadow-sm">
+      {children}
+    </span>
   );
 }
 
-function XIcon() {
+function CodeLine({ text }) {
   return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M18.901 2H21l-4.588 5.244L21.807 22h-4.225l-3.31-4.327L10.49 22H8.39l4.906-5.607L2.193 2h4.333l2.993 3.912L12.95 2h1.951L10.38 7.168l7.604 9.92h-1.972L8.56 7.34 5.52 10.82 11.09 18h.002l.205.267L18.9 2Z" />
-    </IconBase>
+    <div className="rounded-lg border border-white/10 bg-black/20 px-3 py-2">
+      {text}
+    </div>
   );
 }
 
-function GitHubIcon() {
+function DashboardTile({ label, value }) {
   return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 0 0 7.86 10.92c.575.107.785-.25.785-.557 0-.274-.01-1-.016-1.963-3.197.695-3.873-1.54-3.873-1.54-.523-1.327-1.277-1.68-1.277-1.68-1.044-.714.08-.7.08-.7 1.155.081 1.763 1.187 1.763 1.187 1.027 1.76 2.695 1.252 3.352.957.104-.744.402-1.252.732-1.54-2.552-.29-5.236-1.276-5.236-5.68 0-1.255.448-2.282 1.184-3.086-.119-.29-.513-1.456.112-3.037 0 0 .966-.309 3.166 1.179a10.98 10.98 0 0 1 5.764 0c2.198-1.488 3.163-1.179 3.163-1.179.627 1.581.233 2.748.115 3.037.738.804 1.183 1.831 1.183 3.086 0 4.415-2.689 5.386-5.25 5.67.413.355.78 1.056.78 2.128 0 1.537-.014 2.776-.014 3.153 0 .31.207.67.79.556A11.503 11.503 0 0 0 23.5 12C23.5 5.648 18.352.5 12 .5Z" />
-    </IconBase>
+    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+      <p className="text-xs uppercase tracking-[0.16em] text-slate-500">
+        {label}
+      </p>
+      <p className="mt-2 text-xl font-semibold text-white">{value}</p>
+    </div>
   );
 }
 
-function TelegramIcon() {
+function StatPreview({ label, value }) {
   return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M21.944 4.487c.29-.121.607.14.531.438l-3.36 13.143c-.115.451-.647.65-1.029.386l-4.312-2.973-2.2 2.123c-.25.24-.67.1-.722-.245l-.647-4.265L4.8 10.972c-.45-.17-.43-.815.03-.957l17.114-5.528ZM9.88 12.656l.49 3.23.11-1.062 7.19-6.97a.375.375 0 0 0-.43-.596l-8.56 5.398a.375.375 0 0 0-.17.38l.002.02.002.014.366 2.41Z" />
-    </IconBase>
-  );
-}
-
-function DiscordIcon() {
-  return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M20.317 4.369A19.791 19.791 0 0 0 15.433 3a13.43 13.43 0 0 0-.625 1.283 18.27 18.27 0 0 0-5.616 0A13.43 13.43 0 0 0 8.567 3a19.736 19.736 0 0 0-4.89 1.374C.533 9.058-.32 13.625.107 18.128a19.96 19.96 0 0 0 5.993 2.872c.485-.666.917-1.372 1.29-2.112-.71-.269-1.388-.604-2.03-.995.17-.125.337-.255.497-.39 3.914 1.84 8.16 1.84 12.028 0 .164.135.33.265.497.39a12.79 12.79 0 0 1-2.035 1c.375.738.807 1.444 1.289 2.11a19.9 19.9 0 0 0 6-2.875c.5-5.218-.853-9.743-3.319-13.759ZM8.02 15.39c-1.173 0-2.134-1.08-2.134-2.406 0-1.327.94-2.406 2.134-2.406 1.203 0 2.155 1.088 2.134 2.406 0 1.327-.941 2.406-2.134 2.406Zm7.96 0c-1.174 0-2.135-1.08-2.135-2.406 0-1.327.94-2.406 2.134-2.406 1.204 0 2.156 1.088 2.135 2.406 0 1.327-.94 2.406-2.135 2.406Z" />
-    </IconBase>
-  );
-}
-
-function GlobeIcon() {
-  return (
-    <IconBase viewBox="0 0 24 24">
-      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.93 9h-3.02a15.77 15.77 0 0 0-1.19-5.01A8.03 8.03 0 0 1 18.93 11Zm-6.93 9c-.88 0-2.29-1.74-2.84-5h5.68c-.55 3.26-1.96 5-2.84 5Zm-3.06-7a13.93 13.93 0 0 1 0-2h6.12a13.93 13.93 0 0 1 0 2H8.94Zm.22-4c.55-3.26 1.96-5 2.84-5 .88 0 2.29 1.74 2.84 5H9.16ZM9.28 5.99A15.77 15.77 0 0 0 8.09 11H5.07a8.03 8.03 0 0 1 4.21-5.01ZM5.07 13h3.02c.2 1.8.62 3.5 1.19 5.01A8.03 8.03 0 0 1 5.07 13Zm9.65 5.01c.57-1.51.99-3.21 1.19-5.01h3.02a8.03 8.03 0 0 1-4.21 5.01Z" />
-    </IconBase>
+    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+      <p className="text-sm font-medium text-slate-500">{label}</p>
+      <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">
+        {value}
+      </p>
+    </div>
   );
 }
 
 const features = [
   {
     icon: "⚙️",
-    title: "Smart contract tools",
-    desc: "Deploy, upgrade, and manage Soroban contracts through cleaner workflows.",
+    title: "Smart contract operations",
+    desc: "Deploy, invoke, upgrade, and manage Soroban contracts through cleaner workflows.",
   },
   {
     icon: "🧪",
-    title: "Simulation engine",
-    desc: "Validate interactions and test behaviors before pushing to network.",
-  },
-  {
-    icon: "🔗",
-    title: "Wallet integration",
-    desc: "Connect wallets and interact with contracts in a more seamless flow.",
+    title: "Simulation-first workflows",
+    desc: "Validate interactions and inspect behavior before committing to network activity.",
   },
   {
     icon: "📦",
-    title: "Project management",
-    desc: "Work with structured multi-file contract projects directly in-browser.",
+    title: "Portable generated scripts",
+    desc: "Export env, arguments, deploy, and invoke scripts that can be executed locally.",
+  },
+  {
+    icon: "🧭",
+    title: "Visual workflow composition",
+    desc: "Compose deployment and invocation order visually, then download the workflow.",
   },
   {
     icon: "🌐",
     title: "Multi-network support",
-    desc: "Support for Testnet, Futurenet, and Mainnet workflows in one platform.",
+    desc: "Build workflows for Testnet, Mainnet, Local, and future network environments.",
   },
   {
     icon: "🚀",
-    title: "Faster deployment",
-    desc: "Reduce repetitive setup and move from build to deployment more quickly.",
+    title: "Less repetitive setup",
+    desc: "Reduce the engineering time spent wiring scripts, configs, and test flows.",
   },
 ];
 
 const steps = [
   {
-    title: "Create or import",
-    desc: "Start from scratch or bring in an existing smart contract project.",
+    title: "Upload or create",
+    desc: "Start with a compiled WASM, no-code workflow, or full project in the IDE.",
   },
   {
-    title: "Build and simulate",
-    desc: "Use Studio or the IDE to write, test, and inspect contract behavior.",
+    title: "Generate and configure",
+    desc: "Let SoroBuild generate scripts, env files, arguments, and execution steps.",
   },
   {
-    title: "Debug and verify",
-    desc: "Review logs, outputs, and execution flows before deployment.",
+    title: "Simulate and inspect",
+    desc: "Review outputs, generated files, and contract interaction logic.",
   },
   {
-    title: "Deploy to network",
-    desc: "Ship directly to the Soroban environment you want to target.",
+    title: "Run locally or deploy",
+    desc: "Download workflows and execute them in your own secure development environment.",
   },
 ];
